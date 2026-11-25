@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Achievement Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="header">
+        <h1>Student Achievement Portal</h1>
+        <p>Track and showcase your academic & extracurricular milestones</p>
+    </div>
+
+    <div class="container">
+        <!-- Dashboard / Summary View -->
+        <div class="row">
+            <div class="card-stat">Total: <b id="totalCount">0</b></div>
+            <div class="card-stat">Completed: <b id="completedCount">0</b></div>
+            <div class="card-stat">In Progress: <b id="progressCount">0</b></div>
+            <div class="card-stat">Rate: <b id="rateCount">0%</b></div>
+        </div>
+
+        <!-- Progress Bar & Category Summary -->
+        <div class="box">
+            <p><b>Overall Progress:</b> <span id="progressText">0 of 0 completed</span></p>
+            <progress id="progressBar" value="0" max="100"></progress>
+            <p class="small-text">
+                Academic: <b id="acadCount">0</b> | 
+                Sports: <b id="sportCount">0</b> | 
+                Extracurricular: <b id="extraCount">0</b>
+            </p>
+        </div>
+
+        <!-- Main Section: Form on Left, List on Right -->
+        <div class="row">
+            <!-- Form -->
+            <div class="box form-box">
+                <h2>Add Achievement</h2>
+                <p id="msg"></p>
+                <form id="myForm">
+                    <input type="text" id="title" placeholder="Achievement Title">
+                    
+                    <select id="category">
+                        <option value="">Select Category</option>
+                        <option value="Academic">Academic</option>
+                        <option value="Sports">Sports</option>
+                        <option value="Extracurricular">Extracurricular</option>
+                    </select>
+
+                    <select id="status">
+                        <option value="In Progress">In Progress</option>
+                        <option value="Completed">Completed</option>
+                    </select>
+
+                    <input type="date" id="date">
+                    <button type="submit" class="btn-green">Save Achievement</button>
+                </form>
+            </div>
+
+            <!-- List & Filters -->
+            <div class="box list-box">
+                <h2>My Achievements</h2>
+                <div class="row">
+                    <input type="text" id="search" placeholder="Search..." onkeyup="showList()">
+                    <select id="filterCat" onchange="showList()">
+                        <option value="All">All Categories</option>
+                        <option value="Academic">Academic</option>
+                        <option value="Sports">Sports</option>
+                        <option value="Extracurricular">Extracurricular</option>
+                    </select>
+                    <select id="filterStat" onchange="showList()">
+                        <option value="All">All Statuses</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Completed">Completed</option>
+                    </select>
+                </div>
+
+                <div id="list"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
